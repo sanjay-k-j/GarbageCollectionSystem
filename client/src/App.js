@@ -1,25 +1,26 @@
 import React from 'react';
-import { Header } from './components/Header';
-import { Balance } from './components/Balance';
-import { IncomeExpenses } from './components/IncomeExpenses';
-import { TransactionList } from './components/TransactionList';
-import { AddTransaction } from './components/AddTransaction';
-
-import { GlobalProvider } from './context/GlobalState';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import ComplaintForm from './components/ComplaintForm/ComplaintForm';
+import ComplaintsList from './components/ComplaintsList/ComplaintsList';
+
 
 function App() {
   return (
-    <GlobalProvider>
-      <Header />
-      <div className="container">
-        <Balance />
-        <IncomeExpenses />
-        <TransactionList />
-        <AddTransaction />
-      </div>
-    </GlobalProvider>
+    <div>
+      <ToastContainer />
+      {/* <Navbar /> */}
+      
+      <Router>
+        <Routes>
+          
+          <Route path="/" exact element={<ComplaintForm />} />
+          <Route path="/viewComplaints" element={<ComplaintsList />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

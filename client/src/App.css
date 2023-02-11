@@ -21,7 +21,7 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 350px;
+  min-width: 500px;
 }
 
 h1 {
@@ -78,7 +78,8 @@ label {
 }
 
 input[type='text'],
-input[type='number'] {
+input[type='number'],
+select {
   border: 1px solid #dedede;
   border-radius: 2px;
   display: block;
@@ -148,4 +149,38 @@ input[type='number'] {
 
 .list li:hover .delete-btn {
   opacity: 1;
+}
+
+th, thead, tr>th{
+  font-size: 1.2rem;
+  width: 20rem;
+  height: 2rem;
+  text-align: left;
+}
+
+tr, tr > td{
+  width: 30rem;
+  height: 2rem;
+}
+
+.tableList{
+  max-width: 80rem;
+  margin: auto;
+  margin-top: -8rem;
+}
+
+.cancel{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
+  background-color: firebrick;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.desc{
+  width: 60rem;
+  margin-right: 2rem;
+  overflow-wrap: break-word;
 }

@@ -1,16 +1,13 @@
-const Transaction = require('../models/Transaction');
+const Garbage = require('../models/Garbage')
 
-// @desc    Get all transactions
-// @route   GET /api/v1/transactions
-// @access  Public
-exports.getTransactions = async (req, res, next) => {
+exports.getComplaints = async (req, res, next) => {
   try {
-    const transactions = await Transaction.find();
+    const complaints = await Garbage.find();
 
     return res.status(200).json({
       success: true,
-      count: transactions.length,
-      data: transactions
+      count: complaints.length,
+      data: complaints
     });
   } catch (err) {
     return res.status(500).json({
@@ -20,18 +17,13 @@ exports.getTransactions = async (req, res, next) => {
   }
 }
 
-// @desc    Add transaction
-// @route   POST /api/v1/transactions
-// @access  Public
-exports.addTransaction = async (req, res, next) => {
+exports.addComplaint = async (req, res, next) => {
   try {
-    const { text, amount } = req.body;
+    const complaint = await Garbage.create(req.body);
 
-    const transaction = await Transaction.create(req.body);
-  
     return res.status(201).json({
       success: true,
-      data: transaction
+      data: complaint
     }); 
   } catch (err) {
     if(err.name === 'ValidationError') {
@@ -50,21 +42,18 @@ exports.addTransaction = async (req, res, next) => {
   }
 }
 
-// @desc    Delete transaction
-// @route   DELETE /api/v1/transactions/:id
-// @access  Public
-exports.deleteTransaction = async (req, res, next) => {
+exports.deleteComplaint = async (req, res, next) => {
   try {
-    const transaction = await Transaction.findById(req.params.id);
+    const complaint = await Garbage.findById(req.params.id);
 
-    if(!transaction) {
+    if(!complaint) {
       return res.status(404).json({
         success: false,
-        error: 'No transaction found'
+        error: 'No complaint found'
       });
     }
 
-    await transaction.remove();
+    await complaint.remove();
 
     return res.status(200).json({
       success: true,
