@@ -1,7 +1,7 @@
-import axios from 'axios'
+import axios from "axios";
 
 const httpClient = axios.create({
-    baseURL: 'http://localhost:5001'
+  baseURL: "http://localhost:5500",
 });
 
 export default httpClient;

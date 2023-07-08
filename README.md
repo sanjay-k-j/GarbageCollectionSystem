@@ -1,6 +1,4 @@
-# Expense Tracker (MERN)
 
-> Full stack expense tracker
 
 ## Usage
 
@@ -10,7 +8,7 @@ change config.env file in config folder
 
 ```
  npm install
- cd client npm install
+ cd client npm i
  cd ..
  
  # Run front and backend
@@ -29,3 +27,9 @@ change config.env file in config folder
  # Prod
  npm start
 ```
+
+**creating a config file**
+
+NODE_ENV = development
+PORT = <?> ..change <?> to using port number
+MONGO_URI=mongodb+srv://<username>:<password>@<collections>/<collection name>?retryWrites=true&w=majority
